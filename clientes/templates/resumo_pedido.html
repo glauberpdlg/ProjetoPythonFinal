@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="login-container">
+<h2>Resumo do Pedido</h2>
+<form method="post"></form>
+ 
+{% if itens_pedido %}
+  <table>
+    <thead>
+      <tr>
+        <th>Prato</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in itens_pedido %}
+      <tr>
+        <td>{{ item.prato.principal }}</td>
+        <td>{{ item.quantidade }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+ 
+  <p><strong>Total de itens: {{ total_itens }}</strong></p>
+ 
+  <form method="post" action="{% url 'finalizar_pedido' %}">
+    {% csrf_token %}
+    <button type="submit">Finalizar Pedido</button>
+  </form>
+ 
+{% else %}
+  <p>Sua sacola está vazia.</p>
+{% endif %}
+ 
+<p><a href="{% url 'pag_inicial' %}">Voltar ao cardápio</a></p>
+   
+{% endblock %}

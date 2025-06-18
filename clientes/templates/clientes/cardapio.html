@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div style="max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #fbc2c2;">
+  <h1 style="text-align: center; color: #2A8C5E; margin-bottom: 30px;">
+    Cardápio - Categoria: {{ categoria|title }}
+  </h1>
+
+  <form method="post" action="{% url 'adicionar_ao_pedido' %}">
+    {% csrf_token %}
+    <table style="width: 100%; border-collapse: collapse;"
+      <thead>
+        <tr style="background-color: #F2B1A2; color: white;">
+          <th style="padding: 12px; text-align: left;">Prato</th>
+            <h2></h2>
+          <th style="padding: 12px; text-align: center;">Quantidade</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for prato in pratos %}
+        <tr style="border-bottom: 1px solid #ccc;">
+          <td style="padding: 12px; color: #4A8C6D;" >
+            <strong>{{ prato.principal }}</strong><br>
+            <small><em>{{ prato.acompanhamento }}</em></small>
+          </td>
+          <td style="padding: 12px; text-align: center;">
+            <input type="number" name="quantidade_{{ prato.id }}" min="0" value="0" style="width: 60px; padding: 6px; border: 1px solid #ccc; border-radius: 4px;">
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <div style="text-align: center; margin-top: 25px;">
+      <button type="submit" style="background-color: #8FBFA9; color: white; border: none; padding: 12px 25px; font-size: 16px; border-radius: 6px; cursor: pointer; transition: background-color 0.3s ease;">
+        Adicionar ao Pedido
+      </button>
+    </div>
+  </form>
+
+  <p style="text-align: center; margin-top: 20px;">
+    <a href="{% url 'resumo_pedido' %}" style="color: #4A8C6D; font-weight: bold; text-decoration: none;">
+      Ver Sacola (Resumo do Pedido)
+    </a>
+  </p>
+</div>
+
+{% endblock %}
+
+
+
+

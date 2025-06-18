@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1 class = "tituloPromo"> Promoções </h1>
+    <section class="textoPromo">
+        <p class='msgpromo'>Feito com cuidado, pensando em você: Confira nossas promoções!</p>
+    </section>
+<main class="imgpromo">
+    <section class = "promocomum">
+        <img src="{% static 'img\imgpromo1.jpg'%}">
+    </section>
+    <section class = "promosaudavel">
+        <img src="{% static 'img\imgpromo2.jpg'%}">
+    </section>
+    <section class = "promolowcarb">
+        <img src="{% static 'img\imgpromo3.jpg'%}">
+    </section>
+</main>
+
+
+
+{% endblock %}
+

@@ -1,0 +1,27 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/clientes.css' %}">
+    <title>
+       {% block title %} {% endblock %}
+    </title>
+</head>
+<body>
+    <header>
+       {% include 'componentes/header.html' %}
+    </header>
+    <main>
+       {% block content %} {% endblock %}
+    </main>
+    <footer class="footer">
+      <p>Feito com ♥ por você.</p>
+    </footer>
+</body>
+</html>

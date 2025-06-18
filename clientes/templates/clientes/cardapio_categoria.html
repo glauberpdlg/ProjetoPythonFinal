@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cardápio - {{ categoria|title }}</h2>
+
+<form method="post" action="{% url 'fazer_pedido' %}">
+  {% csrf_token %}
+  <ul>
+    {% for prato in pratos %}
+      <li>
+        <strong>{{ prato.principal }}</strong> com {{ prato.acompanhamento }} 
+        <input type="number" name="quantidade_{{ prato.id }}" min="0" value="0" style="width: 50px;">
+      </li>
+    {% empty %}
+      <li>Nenhum prato disponível nesta categoria.</li>
+    {% endfor %}
+  </ul>
+
+  <button type="submit">Enviar Pedido</button>
+</form>
+
+{% endblock %}

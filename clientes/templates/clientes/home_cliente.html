@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main >
+
+    <section class = "sec1">
+        <div class="texto">
+            <h1>Delicalu, Cozinha com Amor</h1>
+            <p class="texto-grande">A  DelicaLu é a solução que faltava na sua rotina! </p>
+            <p>Se você gosta de comida saborosa e saudável, que faz bem pro mundo e pra todo mundo, chega mais que tá na mesa!</p>
+            <a href="{% url 'login' %}"><button class="btn btn-outline-success button2" >Cadastro ou Login</button></a>
+        </div>
+        <div class = "imagemP">
+            <img src="{% static 'img\imagem (4).png'%}">
+        </div>
+    </section>
+        
+    <section class="sec2">
+        <p>Escolha seu estilo de alimentação</p>
+    </section>
+    <section class="homepage">  
+        <a href="{% url 'cardapio_categoria' 'comum' %}">
+            <img src="{% static 'img/imagem (1).png' %}" alt="ComidaComum">
+        </a>
+        <a href="{% url 'cardapio_categoria' 'saudavel' %}">
+            <img src="{% static 'img/imagem.png' %}" alt="ComidaSaudavel">
+        </a>
+        <a href="{% url 'cardapio_categoria' 'low_carb' %}">
+            <img src="{% static 'img/imagem (2).png' %}" alt="ComidaLow">
+        </a>
+    </section>
+</main>
+
+{{ title }}
+{{ cliente }}
+
+{% endblock %}  

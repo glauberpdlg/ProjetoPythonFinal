@@ -1,0 +1,50 @@
+{% load static %}
+
+  <section class='header'>
+
+    <div class="img_banner">
+      <a href = "{% url 'pag_inicial' %}"><img class="banner" src="{% static 'img\imagem (3).png' %}" alt=""></a>    
+    </div> 
+
+ 
+      <div class='menu'>
+        <ul>
+            <li><a href="{% url 'pag_inicial' %}"><h5>Início</h5></a></li>
+            
+            <li><a href="{% url 'sobre' %}"><h5>Sobre Nós</h5></a></li>
+
+            <li><a href="{% url 'promo' %}"><h5>Promoções</h5></a></li>
+
+            <li><a href="{% url 'info' %}"><h5>Informações</h5></a></li>
+
+            <li><a href="{% url 'ajuda' %}"><h5>Ajuda</h5></a></li>
+            
+        </ul>
+
+       
+
+      </div>
+<!--     <div class="search">
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="O que procura?" aria-label="Search"/>
+            <button class="btn btn-outline-sucess button" type="submit">Buscar</button>
+          </form>
+        </div>
+      </nav>
+
+    </div> -->
+    <div>
+      {% if request.session.nome_cliente %}
+        <div class="login-info">
+          <p class="mb-0" >Olá, <strong>{{ request.session.nome_cliente }}</strong></p>
+          <button class="btn-sair"><a href="{% url 'logout' %}">Sair</a></button>
+        </div>
+    
+      {% endif %}
+    
+      </div>       
+  </section>
+
+ 
