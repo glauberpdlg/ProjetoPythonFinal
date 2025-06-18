@@ -607,3 +607,14 @@ margin-top: 20px;
   background-color: #c68c91;
   color:#c68c91;
 }
+
+.mensagem_login {
+ 
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  font-weight: bold
+ 
+  
+}
+  

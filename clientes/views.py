@@ -35,7 +35,7 @@ class BuscaCliente(View):
                 erro_message = "Nenhum cliente encontrado."
                 return render(request, 'clientes/login.html', {'mensagem':erro_message})
         else: 
-            erro_message = "Por favor, informe um email e cpf para consulta"
+            erro_message = "Por favor, informe um email e telefone válidos."
             return render(request, 'clientes/login.html', {'mensagem':erro_message})
 
 

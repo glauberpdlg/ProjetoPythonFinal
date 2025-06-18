@@ -20,7 +20,10 @@
   </div>
 </div>
 
-{% if mensagem %}
-  <p>{{ mensagem }}</p>
-{% endif %}
+<div class="mensagem_login">
+  {% if mensagem %}
+    <p>{{ mensagem }}</p>
+  {% endif %}
+</div>  
+
 {% endblock %}
